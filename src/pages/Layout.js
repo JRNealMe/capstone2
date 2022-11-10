@@ -1,8 +1,8 @@
-import { Outlet, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import logo from "../logo192.png"
 
-function Layout() {
+function Layout({ children }) {
   return (
     <div className="Layout">
       <nav>
@@ -21,9 +21,7 @@ function Layout() {
           </li>
         </ul>
       </nav>
-      <main>
-        <Outlet />
-      </main>
+      <main>{children}</main>
       <footer></footer>
     </div>
   )
