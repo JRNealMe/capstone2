@@ -15,6 +15,7 @@ const test = new Schema ({
   name: String
 })
 
+// eslint-disable-next-line no-unused-expressions
 ;(async () => {
   const connector = mongoose.connect(uri);
   
