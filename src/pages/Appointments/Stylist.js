@@ -1,15 +1,24 @@
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import Modal from "../../Components/Modal"
 import Stylist1 from "../../Stylist1.jpeg"
 import Stylist2 from "../../Stylist2.jpeg"
+import { BookingContext } from "../../Components/Booking"
 
 function Stylist() {
+  const booking = useContext(BookingContext)
   return (
     <>
       <div className="center">
         <h1>Stylist</h1>
 
-        <Link to="/Service" className="card">
+        <Link
+          onClick={() => {
+            booking.setStylist("Stacia")
+          }}
+          to="/Service"
+          className="card"
+        >
           <div className="cardImage">
             <img src={Stylist1}></img>
           </div>
@@ -21,7 +30,13 @@ function Stylist() {
             </div>
           </div>
         </Link>
-        <Link to="/Service" className="card">
+        <Link
+          onClick={() => {
+            booking.setStylist("Brianne")
+          }}
+          to="/Service"
+          className="card"
+        >
           <div className="cardImage">
             <img src={Stylist2}></img>
           </div>

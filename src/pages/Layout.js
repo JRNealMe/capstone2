@@ -6,10 +6,10 @@ function Layout({ children }) {
   return (
     <div className="Layout">
       <nav>
-        <a href="/" target="_blank" rel="noreferrer">
+        <Link to="/">
           <img src={logo} alt="logo"></img>
-        </a>
-        <ul>
+        </Link>
+        <ul style={{ display: "flex", alignItems: "center" }}>
           <li>
             <Link to="/ContactUs">Contact Us</Link>
           </li>
@@ -17,10 +17,13 @@ function Layout({ children }) {
             <Link to="/Service">About Us</Link>
           </li>
           <li>
-            <Link to="/Stylist">Book Now</Link>
+            <Link to="/Stylist">
+              <button className="booknow">Book Now</button>
+            </Link>
           </li>
         </ul>
       </nav>
+
       <main>{children}</main>
       <footer></footer>
     </div>

@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Service {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  name      String    @unique @db.VarChar(128)
+  booking   Booking[]
+}
+
+model Booking {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  stylist     String   @db.VarChar(32)
+  serviceName String   @db.VarChar(128)
+  appointment DateTime @db.Timestamptz(0)
+  service     Service  @relation(fields: [serviceName], references: [name])
+}

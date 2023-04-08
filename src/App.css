@@ -12,6 +12,29 @@ body {
   background-size: 100vw;
 }
 
+.timeButton {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
+
+/* The date picker */
+.rdtPicker {
+  background: transparent;
+}
+
+/* The hovered date */
+.rdtPicker td.rdtDay:hover {
+  background: rgb(255, 157, 0);
+  border-radius: 3px;
+}
+
+/* The active selected date */
+.rdtPicker td.rdtActive {
+  background-color: #428bca;
+  border-radius: 3px;
+}
+
 .center {
   display: flex;
   flex-wrap: wrap;
@@ -21,12 +44,53 @@ body {
   transform: translate(-50%, -50%);
   width: 75vw;
   max-width: 450px;
-  height: 50vh;
-  background-color: rgb(222 211 187 / 98%);
+  height: auto;
+  background-color: rgba(222 211 187 / 90%);
+  backdrop-filter: blur(5px);
   color: black;
   justify-content: center;
   border-radius: 25px;
   transition: all 1s ease-out;
+}
+
+.booknow {
+  appearance: none;
+  background-color: rgba(222 211 187 / 90%);
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  box-sizing: border-box;
+  color: #040303;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.booknow:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.booknow:hover {
+  background-color: rgba(199, 189, 166, 0.9);
+}
+
+.booknow:focus {
+  box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
+  outline: none;
 }
 
 /* .center-enter {
@@ -410,4 +474,53 @@ input {
   display: flex;
   width: 100%;
   height: 200px;
+}
+
+.accordion {
+  font-size: 17px;
+  margin: 0 20px;
+}
+
+.accordion__button {
+  border: 0;
+  margin: 10px 0;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: inherit;
+}
+
+.accordion__button span {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: #000;
+  font-size: 15px;
+}
+
+.accordion__button:focus {
+  outline: none;
+}
+
+.accordion__content {
+  padding: 0 20px;
+  opacity: 0;
+  transition: all 0.5s;
+  height: 0;
+  margin: 0;
+  margin-top: -10px;
+  border: 1px solid #f1f1f1;
+  border-top: 0;
+}
+
+.accordion__content.active {
+  height: auto;
+  opacity: 1;
+  padding: 20px;
 }

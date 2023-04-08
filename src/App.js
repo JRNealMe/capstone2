@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
 import { TransitionGroup, CSSTransition } from "react-transition-group"
 import Layout from "./pages/Layout"
 import Home from "./pages/Home"
+import "react-datetime/css/react-datetime.css"
 import "./App.css"
 
 import Appointment from "./pages/Appointments/Appointment"
@@ -12,6 +13,7 @@ import Stylist from "./pages/Appointments/Stylist"
 import NoPage from "./pages/NoPage"
 
 import React from "react"
+import BookingProvider from "./Components/Booking"
 
 export default function App() {
   const location = useLocation()
@@ -36,8 +38,10 @@ const root = ReactDOM.createRoot(document.getElementById("root"))
 
 root.render(
   <BrowserRouter>
-    <Layout>
-      <App />
-    </Layout>
+    <BookingProvider>
+      <Layout>
+        <App />
+      </Layout>
+    </BookingProvider>
   </BrowserRouter>
 )
