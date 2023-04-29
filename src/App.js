@@ -1,8 +1,9 @@
 import ReactDOM from "react-dom/client"
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom"
+import { TransitionGroup, CSSTransition } from "react-transition-group"
 import Layout from "./pages/Layout"
 import Home from "./pages/Home"
-import "./Main.css"
+import "./App.css"
 
 import Appointment from "./pages/Appointments/Appointment"
 import Confirmation from "./pages/Appointments/Confirmation"
@@ -16,23 +17,27 @@ export default function App() {
   const location = useLocation()
   return (
     <TransitionGroup component={null}>
-      <CSSTransition key={location.key} classNames="fade" timeout={300}>
+      <CSSTransition key={location.key} classNames="fade-right" timeout={300}>
         <Routes location={location}>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
+          <Route index element={<Home />} />
 
-            <Route path="Appointment" element={<Appointment />} />
-            <Route path="Confirmation" element={<Confirmation />} />
-            <Route path="Service" element={<Service />} />
-            <Route path="Stylist" element={<Stylist />} />
-            <Route path="*" element={<NoPage />} />
-          </Route>
+          <Route path="Appointment" element={<Appointment />} />
+          <Route path="Confirmation" element={<Confirmation />} />
+          <Route path="Service" element={<Service />} />
+          <Route path="Stylist" element={<Stylist />} />
+          <Route path="*" element={<NoPage />} />
         </Routes>
       </CSSTransition>
     </TransitionGroup>
   )
 }
 
-const Root = () => <BrowserRouter><App /></BrowserRouter>; // prettier-ignore
+const root = ReactDOM.createRoot(document.getElementById("root"))
 
-render(<Root />, document.getElementById("root"))
+root.render(
+  <BrowserRouter>
+    <Layout>
+      <App />
+    </Layout>
+  </BrowserRouter>
+)

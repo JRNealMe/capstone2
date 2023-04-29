@@ -29,34 +29,58 @@ body {
   transition: all 1s ease-out;
 }
 
-.center-enter {
+/* .center-enter {
 }
 .center-enter-active {
+  transform: translateX(-100vw, -50%);
 }
 .center-exit {
 }
 .center-exit-active {
-}
-.fade-enter {
+} */
+
+.fade-left-enter {
   opacity: 0;
-  transform: translate(0, 25px);
+  transform: translate(-50%, -50%);
   z-index: 1;
 }
-.fade-enter.fade-enter-active {
+.fade-left-enter.fade-enter-active {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: translate(-100%, -50%);
 
-  transition: opacity 250ms ease-out, transform 300ms ease;
+  transition: opacity 300ms ease-out, transform 400ms ease;
 }
-.fade-exit {
+.fade-left-exit {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: translate(100%, -50%);
 }
-.fade-exit.fade-exit-active {
+.fade-left-exit.fade-exit-active {
   opacity: 0;
-  transform: translate(0, 30px);
+  transform: translate(-50%, -50%);
 
-  transition: opacity 250ms ease-out, transform 300ms ease;
+  transition: opacity 300ms ease-out, transform 400ms ease;
+}
+
+.fade-right-enter {
+  opacity: 0;
+  transform: translate(-100%, -50%);
+  z-index: 1;
+}
+.fade-right-enter.fade-enter-active {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+
+  transition: opacity 300ms ease-out, transform 400ms ease;
+}
+.fade-right-exit {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+.fade-right-exit.fade-exit-active {
+  opacity: 0;
+  transform: translate(100%, -50%);
+
+  transition: opacity 300ms ease-out, transform 400ms ease;
 }
 
 .card {
